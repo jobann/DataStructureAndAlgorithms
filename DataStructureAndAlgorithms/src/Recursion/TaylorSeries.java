@@ -3,6 +3,7 @@ package Recursion;
 public class TaylorSeries {
 
 	/**
+	 * With Complexity O(n^2)
 	 * 1 + x + x^2/2! + x^3/3! + .... + n terms
 	 * 
 	 * @param x : number to calculate series
@@ -28,9 +29,41 @@ public class TaylorSeries {
 		return result + (double)p/f;
 	}
 	
+	
+	/**
+	 * With Complexity O(n)
+	 *  = 1 + x/1 + x^2/1*2 + x^3/1*2*3 + x^4/1*2*3*4
+	 *  = 1 + x/1 [ 1 + x/2 + x^2/2*3 +x^3/2*3*4 ]
+	 *  = 1 + x/1 [ 1 + x/2 [ 1 + x/3 + x^2/3*4 ] ]
+	 *  = 1 + x/1 [ 1 + x/2 [ 1 + x/3 [ 1 x/4 ] ] ]
+	 *  
+	 *  
+	 * @param args
+	 */
+	     
+	static double result=1;
+	static double e1(int x, int n ) {
+		
+		if(n==0)
+			return result;
+		
+		result = 1 + (double)x/n  * result;
+
+		
+		
+		return e1(x,n-1);
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println((double)e(4,30));
+		
+		int x=5, n=20;
+		
+		System.out.println((double)e(x,n));
+		
+		System.out.println((double)e1(x,n));
 	}
 
 }
