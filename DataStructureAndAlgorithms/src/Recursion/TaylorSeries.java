@@ -44,6 +44,7 @@ public class TaylorSeries {
 	static double result=1;
 	static double e1(int x, int n ) {
 		
+		
 		if(n==0)
 			return result;
 		
@@ -56,6 +57,28 @@ public class TaylorSeries {
 		
 	}
 	
+	/**
+	 * 
+	 * Iterative approach for Taylor Series
+	 * @param args
+	 */
+	
+	static double e3(int x, int n) {
+		double result=1;
+		double num=1, den=1;
+		
+		for(int i=1; i<=n;i++) {
+			num*=x;
+			den*=i;
+			
+			result+=num/den;
+		}
+		
+		
+		return result;
+	}
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -64,6 +87,8 @@ public class TaylorSeries {
 		System.out.println((double)e(x,n));
 		
 		System.out.println((double)e1(x,n));
+		
+		System.out.println((double)e3(x,n));
 	}
 
 }
