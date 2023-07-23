@@ -53,7 +53,7 @@ public class FibonacciSeries {
 	 * @param args
 	 */
 
-	static int FA[] = new int[n];
+	static int FA[] = new int[n+1];
 	
 
 	
@@ -71,8 +71,8 @@ public class FibonacciSeries {
 
 		if(FA[n-1] == -1)
 			FA[n-1] = f3(n-1);
-		
-		return FA[n-2] + FA[n-1];
+		FA[n] = FA[n-2] + FA[n-1];
+		return FA[n];
 		
 		
 	}
